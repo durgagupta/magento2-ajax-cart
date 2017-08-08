@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="catalog_product_view"/>
+    <body>        
+        <referenceBlock name="custom.product.detail.bottom.static.block" remove="true"/>
+        <referenceBlock name="custom.product.detail.top.static.block" remove="true"/> 
+        <referenceContainer name="product.info.main.media" remove="true"/>
+        <referenceContainer name="product.info.media.image" remove="true"/>
+        <referenceContainer name="product.info.sku" remove="true"/>
+		
+		<referenceContainer name="product.info.main.infomation" htmlClass="col-xs-12" />
+        <referenceBlock name="header.container" remove="true"/>
+        <referenceBlock name="footer-container" remove="true"/>
+        <referenceBlock name="page.top" remove="true" />
+        <referenceBlock name="product.detail.sharethis" remove="true" />
+        <referenceBlock name="product.info.stock.sku" remove="true" />
+        <referenceBlock name="copyright" remove="true" />
+        <referenceBlock name="authentication-popup" remove="true" />
+        <referenceBlock name="product.info.details" remove="true" />
+        <referenceContainer name="product.info.extrahint" remove="true" />   
+        <referenceBlock name="brand.product.related" remove="true" />     
+        <referenceBlock name="product.brand.name" remove="true" />   
+        <referenceBlock name="product.info.review" remove="true" />
+        <referenceBlock name="done.ajaxcart.actions" remove="true" />
+        <referenceBlock name="done.ajaxcart.config" remove="true" />
+        <referenceBlock name="done.ajaxcart.product.actions" remove="true" />
+        <referenceBlock name="catalog.product.related" remove="true" />
+        <referenceBlock name="product.info.overview" remove="true" />
+        <referenceBlock name="product.info.deals.count" remove="true" />
+        <referenceBlock name="product.info.upsell" remove="true" />
+        <referenceBlock name="product.info.sku.brand" remove="true" />
+        <referenceBlock name="lookbook.product" remove="true" />
+		
+		<referenceBlock name="product.detail.info">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">Magento_Catalog::product/view/ajaxcart/layout.phtml</argument>
+            </action>
+        </referenceBlock>
+		
+        <referenceContainer name="before.body.end">
+            <block class="Magento\Framework\View\Element\Template" name="done.ajaxcart.ui" template="Done_AjaxCart::ui.phtml" />
+        </referenceContainer>      
+    </body>
+</page>

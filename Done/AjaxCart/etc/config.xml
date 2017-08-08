@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <ajaxcart>
+            <additional>
+                <animation_type>popup</animation_type>
+                <message>You have added %1 to shopping cart.</message>
+				<redirect_checkout_page>1</redirect_checkout_page>
+				<continue>1</continue>
+            </additional>
+        </ajaxcart>
+    </default>
+</config>

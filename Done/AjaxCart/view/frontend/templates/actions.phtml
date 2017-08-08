@@ -1,0 +1,46 @@
+<?php
+/* @var $block \Done\AjaxCart\Block\Source\Actions */
+?>
+<script type="text/x-magento-init">
+    {
+        "[data-role=tocart-form], .form.map.checkout": {
+            "Magento_Catalog/product/view/validation": {
+                "radioCheckboxClosest": ".nested"
+            }
+        }
+    }
+</script>
+<?php if ($block->isRedirectToCartEnabled()) : ?>
+    <script type="text/x-magento-init">
+        {
+            "[data-role=tocart-form], .form.map.checkout": {
+                "catalogAddToCart": {}
+            }
+        }
+    </script>
+<?php endif; ?>
+<script type="text/x-magento-init">
+    {
+        ".product-item-actions button.action.tocart": {
+            "widgetAddToCart": {
+                "formKey": <?php /* @noEscape */ echo $block->getFormKey() ?>
+            }
+        }
+    }
+</script>
+<script>
+    require([
+        'jquery',
+        'mage/mage'
+    ], function($, widgetAddToCart) {
+        $(document).ajaxComplete(function(event, xhr) {
+            if (xhr.responseText) {
+                try {
+                    eval("var json = " + xhr.responseText + " || {}");
+                } catch (e) {
+                    return;
+                }
+            }
+        });
+    });
+</script>

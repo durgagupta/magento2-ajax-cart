@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="done" translate="label" sortOrder="20">
+            <label>Done</label>
+        </tab>
+        <section id="ajaxcart" translate="label" type="text" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Ajax Cart</label>
+            <tab>done</tab>
+            <resource>Done_AjaxCart::ajaxcart</resource>
+            <group id="additional" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Additional Settings</label>
+                <field id="animation_type" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Animation Type</label>
+                    <source_model>Done\AjaxCart\Model\Source\AnimationType</source_model>
+                </field>
+                <field id="message" translate="label" type="text" sortOrder="11" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Message</label>
+                    <depends>
+                        <field id="animation_type">popup</field>
+                    </depends>
+                </field>
+                <field id="upsell_products" translate="label" type="select" sortOrder="12" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show upsell products</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="animation_type">popup</field>
+                    </depends>
+                </field>
+                <field id="redirect_checkout_page" translate="label" type="select" sortOrder="13" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show "Checkout" button</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="animation_type">popup</field>
+                    </depends>
+                </field>
+                <field id="redirect_cart_page" translate="label" type="select" sortOrder="14" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show "View Shopping Cart" button</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="animation_type">popup</field>
+                    </depends>
+                </field>
+                <field id="continue" translate="label" type="select" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show "Continue Shopping" button</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="animation_type">popup</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

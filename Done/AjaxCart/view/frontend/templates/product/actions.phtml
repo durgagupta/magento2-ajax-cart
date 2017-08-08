@@ -1,0 +1,35 @@
+<?php
+/* @var $block \Magento\Framework\View\Element\Template */
+?>
+<script type="text/x-magento-init">
+    {
+        "#product_addtocart_form": {
+            "catalogAddToCart": {"bindSubmit": true, "redirectToCatalog": true}
+        }
+    }
+</script>
+<script type="text/x-magento-init">
+    {
+        ".product-item-actions button.action.tocart": {
+            "widgetAddToCart": {
+                "formKey": <?php /* @noEscape */ echo $block->getFormKey() ?>
+            }
+        }
+    }
+</script>
+<script>
+    require([
+        'jquery',
+        'mage/mage'
+    ], function($, widgetAddToCart) {
+        $(document).ajaxComplete(function(event, xhr) {
+            if (xhr.responseText) {
+                try {
+                    eval("var json = " + xhr.responseText + " || {}");
+                } catch (e) {
+                    return;
+                }
+            }
+        });
+    });
+</script>

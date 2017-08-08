@@ -1,0 +1,28 @@
+<?php
+/* @var $block \Magento\Framework\View\Element\Template */
+?>
+<script>
+    require(["jquery", 'underscore', 'Magento_Ui/js/modal/modal'], function ($, _, modal) {
+        $(document).ready(function() {
+            var documentPadding = 50;
+            var firstAttempt = true;
+            var lastHeight = 0, curHeight = 0;
+            var parentBody = window.parent.document.body;
+            $('.mfp-preloader', parentBody).css('display', 'none');
+            $('.mfp-iframe-holder .mfp-content', parentBody).css('width', '100%');
+
+            $('.mfp-iframe-scaler iframe', parentBody).animate({'opacity': 1}, 2000);
+            $('.reviews-actions a').attr('target', '_parent');
+            $('.product-social-links a').attr('target', '_parent');
+            $('body').css('overflow', 'hidden');
+        });
+
+    });
+</script>
+<script type="text/x-magento-init">
+    {
+        "#product_addtocart_form": {
+            "Done_AjaxCart/js/action/product-add-to-cart": {"bindSubmit": true, "redirectToCatalog": true}
+        }
+    }
+</script>

@@ -1,0 +1,33 @@
+<?php
+/* @var $block \Done\AjaxCart\Block\Ui\Messages */
+?>
+<div class="page messages">
+	<div data-placeholder="messages"></div>
+	<div data-bind="scope: 'messages'">
+	    <div data-bind="foreach: { data: cookieMessages, as: 'message' }" class="messages">
+	        <div data-bind="attr: {
+	            class: 'message-' + message.type + ' ' + message.type + ' message',
+	            'data-ui-id': 'message-' + message.type
+	        }" class="message-success success message" data-ui-id="message-success">
+	            <div data-bind="html: message.text">
+	            	<?php foreach ($block->getErrorMessages() as $message): ?>
+					    <p class="popup__message popup__message--bad">
+					        <?php echo $block->escapeHtml($message->getText()) ?>
+					    </p>
+					<?php endforeach; ?>
+					<?php foreach ($block->getNoticeMessages() as $message): ?>
+					    <p class="popup__message popup__message--info">
+					        <?php echo $block->escapeHtml($message->getText()) ?>
+					    </p>
+					<?php endforeach; ?>
+					<?php foreach ($block->getSuccessMessages() as $message): ?>
+					    <p class="popup__message popup__message--good">
+					        <?php echo $block->escapeHtml($message->getText()) ?>
+					    </p>
+					<?php endforeach; ?>
+	            </div>
+	        </div>
+	    </div>
+	    <div data-bind="foreach: { data: messages().messages, as: 'message' }" class="messages"></div>
+	</div>
+</div>

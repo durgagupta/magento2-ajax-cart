@@ -1,0 +1,15 @@
+<?php
+/* @var $block \Magento\Framework\View\Element\Template */
+?>
+<script type="text/x-magento-init">
+require([
+    'jquery',
+], function($) {
+    var url_cart_update = <?php echo $this->getUrl('ajaxcart/index/updatecart') ?>;
+    $('[data-block="minicart"]').trigger('contentLoading');
+    $.ajax({
+        url: url_cart_update,
+        method: "POST"
+    });
+});
+</script>

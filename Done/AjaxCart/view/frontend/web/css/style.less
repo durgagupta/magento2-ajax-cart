@@ -1,0 +1,119 @@
+#mgs-ajax-loading {
+	display: none;
+	.preloader {
+		background: url(../images/loader.svg) no-repeat 0 0;
+		background-size: 100%;
+		width: 50px;
+		height: 50px;
+		position: absolute;
+		margin: auto;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		z-index: 9999;
+	}
+}
+
+@-webkit-keyframes rotateplane {
+  0% { -webkit-transform: perspective(120px) }
+  50% { -webkit-transform: perspective(120px) rotateY(180deg) }
+  100% { -webkit-transform: perspective(120px) rotateY(180deg)  rotateX(180deg) }
+}
+
+@keyframes rotateplane {
+  0% { transform: perspective(120px) rotateX(0deg) rotateY(0deg) }
+  50% { transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg) }
+  100% { transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg) }
+}
+
+.ajaxcart-catalog-product-view {
+	#maincontent {
+		width: 100%;
+		padding: 15px;
+	}
+	.top-panel, .page.messages, .scroll-to-top {
+		display: none !important;
+	}
+	.bundle-options-wrapper {
+		padding-top: 0 !important;
+	}
+	.page-title-wrapper.product {
+		margin-top: 0 !important;
+	}
+	.product-addto-links {
+		display: none !important;
+	}
+	.product-info-main {
+		.price-from, .price-to, .bundle-actions {
+			display: none !important;
+		}
+	}
+	.bundle-options-wrapper {
+		.legend.title, .legend.title + br + .margin-top20, .fieldset > p.required {
+			display: none !important;
+		}
+	}
+	.block-bundle-summary {
+		.product-details {
+			.product.name, .stock {
+				display: none !important;
+			}
+		}
+		.bundle-summary {
+			display: none !important;
+		}
+		> .title, > .content .box-tocart .field.qty {
+			display: none !important;
+		} 
+	}
+
+}
+.success-ajax--popup {
+	.mfp-inline-holder .mfp-content {
+		width: 320px !important;
+		margin: 0 auto;
+		background-color: #fff;
+		padding: 15px;
+	}
+	.mfp-iframe-holder .mfp-content {
+		width: 320px !important;
+		margin: 0 auto;
+		background-color: #fff;
+		padding: 15px; 
+		min-height: 400px;
+	}
+	.product-image-container { 
+		width: 100% !important;
+	}
+	.product-image-container .product-image-wrapper .product-image-photo {
+		max-width: 100% !important;
+		width: 120px !important;
+		margin: 0 auto;
+		display: block;
+		height: auto !important;
+	}
+	.popup__result-view-cart {
+		margin: 0 !important;
+	}
+	.popup__result-view-cart a, .popup__actions-wrapper button {
+		width: 100%;
+		text-align: center;
+		display: block;
+		margin-bottom: 10px;
+		min-height: 30px;
+	}
+	.popup__result-title {
+		text-align: center;
+		text-transform: uppercase;
+		font-weight: 600;
+		color: #222;
+	}
+}
+.product-item{
+	form{
+		.mage-error{
+			display:none !important
+		}
+	}
+}

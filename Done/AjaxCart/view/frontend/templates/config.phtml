@@ -1,0 +1,11 @@
+<?php
+/* @var $block \Done\AjaxCart\Block\Source\Config */
+?>
+<script>
+    require([
+        'jquery',
+        'Done_AjaxCart/js/config'
+    ], function($, doneConfig) {
+        doneConfig.setOptions(<?php /* @noEscape */ echo $block->getOptions() ?>);
+    });
+</script>

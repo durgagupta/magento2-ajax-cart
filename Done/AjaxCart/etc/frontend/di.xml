@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\App\Action\Action">
+        <plugin name="ajaxcart-action-plugin" type="Done\AjaxCart\Controller\Plugin\Action" sortOrder="1" disabled="false" />
+    </type>
+    <type name="Magento\Quote\Model\Quote">
+        <plugin name="ajaxcart-quote-plugin" type="Done\AjaxCart\Model\Plugin\Quote" sortOrder="1" disabled="false" />
+    </type>
+    <type name="Magento\Framework\View\Result\Page">
+        <plugin name="ajaxcart-resultpage"
+                type="Done\AjaxCart\Plugin\ResultPage" sortOrder="1"/>
+    </type>
+</config>

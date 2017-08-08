@@ -1,0 +1,55 @@
+<?php
+/* @var $block \Magento\Framework\View\Element\Template */
+?>
+<?php
+    $cartSummary = $block->getCartSummary();
+    $cartSummaryText = $cartSummary == 1 ? __('item') : __('items');
+?>
+    <div class="popup__columns">
+        <?php echo $block->getChildHtml('messages') ?>
+        <div class="popup__column">
+            <div class="popup__column--media">
+                <?php echo $block->getChildHtml('product_image') ?>
+            </div>
+            <div class="popup__column--result">
+                <p class="popup__result-title"><?php echo $block->escapeHtml(__('Cart Subtotal')) ?>: <?php /* @noEscape */ echo $block->getCartSubtotal() ?></p>
+                <?php if($block->getIsCart()) { ?>
+                    <p class="popup__result-view-cart"><a href="javascript:void(0)" data-href="<?php /* @noEscape */ echo $block->getUrl('checkout/cart') ?>"><?php echo $block->escapeHtml(__('View Shopping Cart')) ?></a></p>
+                <?php } ?>
+            </div>
+        </div>
+        <div class="popup__actions-wrapper">
+            <?php if($block->getIsContinue()) { ?>
+                <button type="button" class="popup__action-close btn btn-default" data-action="continue"><?php echo $block->escapeHtml(__('Continue Shopping')) ?></button>
+            <?php } ?>
+            <?php if($block->getIsContinue()) { ?>
+                <button class="popup__action-redirect--checkout btn btn-secondary" data-action="redirect-checkout" data-href="<?php /* @noEscape */ echo $block->getUrl('checkout') ?>"><?php echo $block->escapeHtml(__('Go to checkout')) ?></button>
+            <?php } ?>
+        </div>
+    </div>
+<script>
+    require(["jquery"], function ($) {
+        jQuery(document).ready(function() {
+            jQuery('.popup__action-close').click(function(){
+                jQuery('.mfp-close').trigger('click');
+            });
+            jQuery('.popup__result-view-cart').click(function(){
+                var url_cart_update = '<?php echo $this->getUrl('ajaxcart/index/updatecart')?>';
+                jQuery.ajax({
+                    url: url_cart_update,
+                    method: "POST"
+                });
+                window.location.href = jQuery(this).attr('data-href');
+            })
+            jQuery('.popup__action-redirect--checkout').click(function(){
+                var url_cart_update = '<?php echo $this->getUrl('ajaxcart/index/updatecart')?>';
+                jQuery.ajax({
+                    url: url_cart_update,
+                    method: "POST"
+                });
+                window.location.href = jQuery(this).attr('data-href');
+            })
+        });
+
+    });
+</script>
